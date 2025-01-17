@@ -1,16 +1,25 @@
-import React from 'react'
-import pizza from './images/pizza.jpg'
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import pizza from "./images/pizza.jpg";
 
 function Home() {
-  return (
-    <div>
-      <h2>
-        Welcome to Bloom Pizza!
-      </h2>
-      {/* clicking on the img should navigate to "/order" */}
-      <img alt="order-pizza" style={{ cursor: 'pointer' }} src={pizza} />
-    </div>
-  )
+    const navigate = useNavigate(); // Initialize useNavigate hook
+
+    const handleImageClick = () => {
+        navigate("/order");
+    };
+
+    return (
+        <div>
+            <h2>Welcome to Bloom Pizza!</h2>
+            <img
+                alt="order-pizza"
+                style={{ cursor: "pointer" }}
+                src={pizza}
+                onClick={handleImageClick} // Attach click handler
+            />
+        </div>
+    );
 }
 
-export default Home
+export default Home;
