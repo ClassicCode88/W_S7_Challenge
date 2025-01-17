@@ -56,7 +56,15 @@ export default function Form() {
                     status: false,
                     message: "Something went wrong",
                 });
-            });
+            })
+            .finally(() => {
+                setFormValue({
+                    fullName: "",
+                    size: "",
+                    toppings: []
+                })
+                setFormErrors("")
+            })
     };
 
     useEffect(() => {
